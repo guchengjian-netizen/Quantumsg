@@ -45,13 +45,13 @@ export default async function EditionPage({ params }: Props) {
       <section className="archive-section archive-speakers" id="speakers">
         <div className="archive-section-heading"><span>02 / THE PEOPLE</span><h2>Speakers<br />&amp; contributors.</h2></div>
         {edition.speakers.length ? <div className="archive-speaker-grid">{edition.speakers.map(speaker => <article key={speaker.id} id={`speaker-${speaker.id}`}>
-          {speaker.portrait && <Image src={speaker.portrait} alt={speaker.name} width={480} height={540} />}
+          {speaker.portrait && <Image src={speaker.portrait} alt={speaker.name} width={480} height={540} unoptimized />}
           <h3>{speaker.name}</h3><p className="archive-role">{speaker.role}{speaker.organisation && ` · ${speaker.organisation}`}</p><p>{speaker.biography}</p>
         </article>)}</div> : <div className="archive-empty"><span>Speaker archive</span><h3>The {edition.year} speaker profiles will be available here.</h3><p>Explore each speaker’s role, organisation and biography once the profiles are published.</p></div>}
       </section>
       <section className="archive-section" id="photos">
         <div className="archive-section-heading"><span>03 / IN PICTURES</span><h2>Moments<br />from {edition.year}.</h2></div>
-        {edition.photos.length ? <div className="archive-photo-grid">{edition.photos.map(photo => <figure key={photo.src}><a href={photo.src} target="_blank" rel="noreferrer" aria-label={`Open photo: ${photo.alt}`}><Image src={photo.src} alt={photo.alt} width={1200} height={800} /></a><figcaption>{photo.caption}{photo.credit && <small>Photo: {photo.credit}</small>}</figcaption></figure>)}</div> : <div className="archive-empty"><span>Photo archive</span><h3>Photographs from {edition.year} will be added soon.</h3><p>Return to this collection for event photography from this edition.</p></div>}
+        {edition.photos.length ? <div className="archive-photo-grid">{edition.photos.map(photo => <figure key={photo.src}><a href={photo.src} target="_blank" rel="noreferrer" aria-label={`Open photo: ${photo.alt}`}><Image src={photo.src} alt={photo.alt} width={1200} height={800} unoptimized /></a><figcaption>{photo.caption}{photo.credit && <small>Photo: {photo.credit}</small>}</figcaption></figure>)}</div> : <div className="archive-empty"><span>Photo archive</span><h3>Photographs from {edition.year} will be added soon.</h3><p>Return to this collection for event photography from this edition.</p></div>}
       </section>
       <div className="archive-next">{edition.year === "2025" ? <a href="/editions/2026"><span>Second edition</span><strong>Quantum Singapore 2026 →</strong></a> : <a href="/"><span>Third edition</span><strong>Quantum Singapore 2027 →</strong></a>}</div>
       <footer><a className="brand" href="/" aria-label="Quantum Singapore home"><Logo /></a><p>QUANTUM SINGAPORE<br />{edition.label.toUpperCase()}</p><div><a href="/#past">All editions</a><a href="#top">Back to top ↑</a></div><span className="copyright">© 2027 QUANTUM SINGAPORE</span></footer>

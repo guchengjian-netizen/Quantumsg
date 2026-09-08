@@ -1,5 +1,7 @@
 # Dependencies
 node_modules/
+netlify-dist/
+.netlify/
 .pnp
 .pnp.*
 .yarn/*
